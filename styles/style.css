@@ -1,63 +1,82 @@
+/* ---------------------------------------------------
+   BASISINSTELLINGEN
+--------------------------------------------------- */
 @font-face {
   font-family: "Rubik";
   src: url(/fonts/Rubik/Rubik-Regular.ttf);
 }
 
-body{
-  font-family: "Rubik";
-  margin: 0;
-  padding: 0;
+:root {
+  --accent: #3178ef;
+  --text-dark: #222;
+  --text-light: #fff;
+  --bg-light: #fff;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.bg{
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  overflow-x: hidden; /* voorkomt horizontaal scrollen */
+}
+
+/* ---------------------------------------------------
+   HERO / HEADER AFBEELDING
+--------------------------------------------------- */
+.bg {
   position: absolute;
+  inset: 0;
   height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/images/egaline.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  /* width: 100vw; */
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+              url(../images/egaline.webp) center/cover no-repeat;
   z-index: -2;
 }
 
+/* ---------------------------------------------------
+   TOPBAR
+--------------------------------------------------- */
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(49, 160, 239, 0.4);
-  color: white;
+  color: var(--text-light);
   padding: 0.3rem 1rem;
   font-size: 0.9rem;
   font-weight: 500;
-  font-family: "Rubik", sans-serif;
   position: relative;
   z-index: 30;
 }
 
-.topbar_left {
+.topbar_left,
+.topbar_center {
   display: flex;
   align-items: center;
+}
+
+.topbar_left {
   gap: 0.5rem;
 }
 
-.topbar_left i {
-  color: #fff;
-  font-size: 1.1rem;
-}
-
 .topbar_left a {
-  color: white;
+  color: var(--text-light);
   text-decoration: none;
   font-weight: 600;
 }
 
 .topbar_center {
-  display: flex;
   gap: 2rem;
-  justify-content: center;
   flex: 1;
+  justify-content: center;
 }
 
 .topbar_item {
@@ -66,40 +85,44 @@ body{
   gap: 0.4rem;
 }
 
-.topbar_item i {
-  color: white;
+.topbar_item i,
+.topbar_left i {
+  color: var(--text-light);
   font-size: 1.1rem;
 }
 
-@media screen and (max-width: 600px) {
+/* Responsief gedrag */
+@media (max-width: 600px) {
   .topbar_center {
     display: none;
   }
   .topbar {
-    justify-content: center !important;
-  }
-  .topbar_left {
     justify-content: center;
+  }
+  .notop{
+    margin: 0;
   }
 }
 
-.nav_logo img {
-  height: 5rem;
-}
-.nav{
+/* ---------------------------------------------------
+   NAVIGATIE
+--------------------------------------------------- */
+.nav {
   height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-  margin-bottom: 3rem;
-  position: relative; /* zorgt dat absolute children relatief aan nav zijn */
-  z-index: 10; /* basis */
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--text-light);
+  position: relative;
+  z-index: 10;
 }
 
-.nav_logo{
-  margin: auto 1rem;
+.nav_logo img {
+    height: 5rem;
+    margin-top: 0.5vh;
+    margin-left: 1rem;
+    border-radius: 10px;
 }
 
 .nav_menu ul {
@@ -108,31 +131,27 @@ body{
   display: flex;
 }
 
-.nav_menu ul li{
+.nav_menu ul li {
   list-style: none;
 }
 
 .nav_menu ul li a {
   text-decoration: none;
-  color: white;
+  color: var(--text-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5rem; 
-  padding: 0 1.5rem; 
-  cursor: pointer;
-  box-sizing: border-box;
+  height: 5rem;
+  padding: 0 1.5rem;
   transition: background-color 0.2s ease;
-  z-index: 9;
 }
-
 
 .nav_menu ul li a:hover {
   background-color: rgba(49, 160, 239, 0.5);
 }
 
-
-.nav_hamburger{
+/* Hamburger menu */
+.nav_hamburger {
   width: 1.875rem;
   height: 1.313rem;
   display: none;
@@ -141,7 +160,7 @@ body{
   position: absolute;
   top: 1rem;
   right: 1rem;
-  z-index: 20; /* hoger dan nav_menu, altijd klikbaar */
+  z-index: 20;
 }
 
 .nav_hamburger_line {
@@ -152,79 +171,87 @@ body{
   transition: all ease-in-out 0.2s;
 }
 
-@media screen and (max-width: 550px) {
-  .nav_logo img{
-  height: 5rem;
-  }
-  .nav_hamburger{
+/* Mobiel menu */
+@media (max-width: 550px) {
+  .nav_hamburger {
     display: flex;
   }
-  .nav_menu{
+
+  .frankmarco_image{
+    display: none;
+  }
+
+  .nav_menu {
     position: absolute;
-    display: flex;
-    align-items: center;
-    background-color: rgba(49,160,239,0.1);
     top: -23rem;
     width: 100%;
+    background-color: rgba(49, 160, 239, 0.1);
     transition: all ease-in-out 0.4s;
+    z-index: -1;
   }
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+
   .nav_menu ul {
     flex-direction: column;
     margin-top: 5rem;
     width: 100%;
-    padding: 0rem 0 0.6rem;
+    padding: 0 0 0.6rem;
     background-color: rgba(49, 160, 239, 0.3);
     backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    }
-  .nav_menu ul li{
+  }
+
+  .nav_menu ul li {
     text-align: center;
   }
-  .nav_menu ul li a {
-    padding: 0rem 0rem;
-  }
-  .nav_menu{
-    z-index: -1;
-  }
+
   .nav_menu.active {
     top: 0;
   }
-  .nav_hamburger.active :nth-child(1){
-    transform: rotate(45deg) translate(0.45rem, 0.1875rem)
+
+  .nav_hamburger.active :nth-child(1) {
+    transform: rotate(45deg) translate(0.45rem, 0.1875rem);
   }
-  .nav_hamburger.active :nth-child(2){
+  .nav_hamburger.active :nth-child(2) {
     opacity: 0;
   }
-  .nav_hamburger.active :nth-child(3){
-    transform: rotate(-45deg) translate(0.45rem, -0.1875rem)
+  .nav_hamburger.active :nth-child(3) {
+    transform: rotate(-45deg) translate(0.45rem, -0.1875rem);
   }
-
 }
 
 .hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    min-height: 78vh;
+    width: 100%;
+    text-align: center;
+    padding-top: 5vh;
+    align-items: center;
 }
 
+
+/* Hero-content weer over volledige breedte */
 .hero_content {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
-  color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  text-align: center;
-  
-  width: 100%;        /* hele breedte */
-  margin: 0 auto;     /* centreren */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    width: 40%;
+    border-radius: 0;
+    margin-left: 5rem;
+}
+
+.frankmarco_image {
+  min-height: 78vh;
+  padding-top: 5vh;
+  margin-right: 5rem;
+}
+
+.frankmarco_image img {
+  border-radius: 50px;
 }
 
 .hero_content h2 {
-  font-size: 2rem;    /* wat groter op desktop */
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -238,7 +265,7 @@ body{
   color: white;
   padding: 0.8rem 1.6rem;
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 20px;
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.3s ease;
@@ -248,15 +275,22 @@ body{
   background-color: #235ac4;
 }
 
+/* Responsief */
 @media screen and (max-width: 550px) {
   .hero {
-    height: auto;
-    padding: 0rem 1rem;
+      height: auto;
+      padding: 1rem 1rem;
+      display: block;
+      min-height: 0vh;
+  }
+  .bg {
+      height: 53vh;
   }
 
   .hero_content {
-    padding: 2rem 1rem;
-    border-radius: 0; /* optioneel: hoekjes weg op mobiel */
+      padding: 2rem 1rem;
+      width: 100%;
+      margin-left: 0vw;
   }
 
   .hero_content h2 {
@@ -270,5 +304,80 @@ body{
   .hero_button {
     font-size: 0.95rem;
     padding: 0.7rem 1.4rem;
+  }
+}
+
+/* ---------------------------------------------------
+   INFO SECTIE
+--------------------------------------------------- */
+.info {
+  width: 100%;
+  max-width: 1200px;
+  margin: 6rem auto 4rem; /* meer witruimte boven (6rem) en onder (4rem) */
+  padding: 0 1.5rem;
+}
+
+.intro {
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.intro h2 {
+  color: var(--accent);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  color: #555;
+  margin-bottom: 1.2rem;
+}
+
+/* ---------------------------------------------------
+   MERKEN SECTIE (vanaf hier alles wit)
+--------------------------------------------------- */
+.merken {
+  background-color: #fff;
+  padding: 100px 20px; /* meer verticale ruimte: 100px top/bottom */
+  margin: 0;
+  text-align: center;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.merken h2 {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  color: var(--text-dark);
+}
+
+.merken_logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* zodat alles altijd past */
+  gap: 50px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.merken_logos img {
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.merken_logos img:hover {
+  transform: scale(1.1);
+}
+
+/* Logo’s kleiner op mobiel */
+@media (max-width: 768px) {
+  .merken_logos {
+    gap: 30px;
+  }
+
+  .merken_logos img {
+    width: 70px;
   }
 }

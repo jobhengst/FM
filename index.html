@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FMvloerwerken - Home</title>
-  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -14,9 +14,8 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 />
 </head>
-<body>
-  <header>
-      <div class="topbar">
+<header>
+  <div class="topbar">
     <div class="topbar_left">
       <i class="fas fa-phone"></i>
       <a href="tel:+310612345678">06 12345678</a>
@@ -32,33 +31,61 @@
         <i class="fas fa-building"></i> Ingeschreven bij Kamer van Koophandel
       </div>
     </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav_logo"><img src="images/testfm.jpg" alt="logofm"></div>
+    <a href="#" class="nav_hamburger">
+      <span class="nav_hamburger_line"></span>
+      <span class="nav_hamburger_line"></span>
+      <span class="nav_hamburger_line"></span>
+    </a>
+    <div class="nav_menu">
+      <ul>
+        <li class="nav_menu_link"><a href="/pages/offerte.html">Offerte</a></li>
+        <li class="nav_menu_link"><a href="/pages/projecten.html">Projecten</a></li>
+        <li class="nav_menu_link"><a href="/pages/contact.html">Contact</a></li>
+      </ul>
     </div>
-    <nav class="nav">
-      <div class="nav_logo"><img src="/images/testfm.jpg" alt="logofm"></div>
-      <a href="#" class="nav_hamburger">
-        <span class="nav_hamburger_line"></span>
-        <span class="nav_hamburger_line"></span>
-        <span class="nav_hamburger_line"></span>
-      </a>
-      <div class="nav_menu">
-        <ul>
-          <li class="nav_menu_link"><a href="/pages/offerte.html">Offerte</a></li>
-          <li class="nav_menu_link"><a href="/pages/projecten.html">Projecten</a></li>
-          <li class="nav_menu_link"><a href="/pages/contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div class="bg"></div>
+  </nav>
   </header>
 
+<body>
+  <div class="bg"></div>
   <section class="hero">
     <div class="hero_content">
-      <h2>Dé specialist in vloer egalisatie</h2>
+      <h1>FMVloerwerken</h1>
+      <h3>Kies voor een strakke, perfect geëgaliseerde vloer.</h3>
+      <i class="fa-solid fa-check" style="color: #3178ef; margin-right: 6px;"></i>Snel, vakkundig en duurzaam — dát is onze belofte.</p>
       <p>Ontvang binnen een week een offerte</p>
-      <a href="/pages/offerte.html" class="hero_button">Gratis offerte aanvragen</a>
+        <a href="/pages/offerte.html" class="hero_button">Offerte aanvragen</a>
+        <a href="/pages/contact.html" class="hero_button">Contacteer ons</a>
     </div>
+        <div class="frankmarco_image">
+          <img src="/images/KW1C-removebg-preview.png" alt="Hero Image"/>
+        </div>
   </section>
 
+  <section class="info">
+    <div class="intro">
+      <h2>Welkom bij FMvloerwerken</h2>
+      <p>Bij FMvloerwerken zijn we gespecialiseerd in het egaliseren van vloeren voor zowel particuliere als zakelijke klanten. Met jarenlange ervaring en een passie voor perfectie,
+         zorgen wij ervoor dat uw vloer de ideale basis vormt voor elke afwerking. Of het nu gaat om een nieuwe woning,
+         een renovatieproject of een commercieel pand, wij bieden op maat gemaakte oplossingen die voldoen aan de hoogste kwaliteitsnormen.
+         Ons deskundige team gebruikt alleen de beste materialen en technieken om een gladde, duurzame en vlakke vloer te garanderen. Kies voor FMvloerwerken en ervaar het verschil van een professioneel afgewerkte vloer.</p>
+    </div>
+      </section>
+
+    <section class="merken">
+      <h2>Onze Merken</h2>
+      <div class="merken_logos">
+        <img src="/images/coba.png" alt="Merk 1"/>
+        <img src="/images/eurocol.png" alt="Merk 2"/>
+        <img src="/images/quartzline.png" alt="Merk 3"/>
+        <img src="/images/thomsit.png" alt="Merk 4"/>
+      </div>
+    </section>
+    </div>
   <script src="scripts/script.js" defer></script>
 </body>
 </html>
